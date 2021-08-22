@@ -3,16 +3,19 @@ import{
     combineReducers,
     applyMiddleware　//redux package
 } from "redux";
-import {UsersReducer, roterMiddleware, connectRouter} from "connected-react-router";
 
-export default function createStore (history) {  //history 今どのパスいるかを表す
+import {routerMiddleware, connectRouter} from 'connected-react-router';
+import {UsersReducer} from '../users/reducers';
+
+//history 今どのパスいるかを表す
+export default function createStore (history) { 
     return reduxCreateStore(
         combineReducers({
             router: connectRouter(history),
             users: UsersReducer
         }),
         applyMiddleware(
-            roterMiddleware(history)
+            routerMiddleware(history)
         )
     );
 }
