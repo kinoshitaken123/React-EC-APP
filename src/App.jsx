@@ -4,7 +4,7 @@ import Router from './Router'
 const App =() => {
   return(
     <main>
-      <Roter />
+      <Router />
     </main>
   )
 }

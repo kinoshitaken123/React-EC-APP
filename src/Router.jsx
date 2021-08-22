@@ -1,13 +1,13 @@
 import React from 'react'
-import { Switch, Router } from 'react-router'
-import {Login, Home} from'./template'
+import { Switch, Route } from 'react-router'
+import {Login, Home} from'./templates'
 
 const Router = () => {
     return (
-        <switch>
-            <Router exact path={"/login"} component={Login} />
-            <Router exact path={"(/)?"} component={Home} />     {/* スラッシュがあってもなくてもHOME画面を表示させる */}
-        </switch>
+        <Switch>
+            <Route exact path={"/login"} component={Login} />
+            <Route exact path={"(/)?"} component={Home} />     {/* スラッシュがあってもなくてもHOME画面を表示させる */}
+        </Switch>
     )
 }
 export default Router
