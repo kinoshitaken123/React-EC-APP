@@ -6,6 +6,7 @@ import{
 
 import {routerMiddleware, connectRouter} from 'connected-react-router';
 import {UsersReducer} from '../users/reducers';
+import thunk from 'redux-thunk';
 
 //history 今どのパスいるかを表す
 export default function createStore (history) { 
@@ -15,7 +16,8 @@ export default function createStore (history) {
             users: UsersReducer
         }),
         applyMiddleware(
-            routerMiddleware(history)
+            routerMiddleware(history),
+            thunk
         )
     );
 }
