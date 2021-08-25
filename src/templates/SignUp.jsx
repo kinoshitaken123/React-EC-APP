@@ -1,8 +1,12 @@
 import React,{useState,useCallback} from 'react';
+import { useDispatch } from 'react-redux';
 import {PrimaryButton,TextInput} from '../components/UIkit';
+import {signUp} from '../reducks/users/operations';
 
-const SignUp = () =>{
+const SignUp = () => {
     
+    const dispatch = useDispatch()
+
     const [username, setUsername] = useState(""), //const宣言　複数行可能
           [email, setEmail] = useState(""),
           [password, setPassword] = useState(""),
@@ -48,10 +52,11 @@ const SignUp = () =>{
              fullwidth={true} label={"パスワードの再確認"} multiline={false} required={true}
              rows={1} value={confirmPassword} type={"password"} onChange={inputConfirmPassword}
              />
+             <div className="module-spacer--medium" />
              <div className="center">
               <PrimaryButton 
               label={"アカウントを登録する"}
-              onClick={()=> console.log("Clicked!")}
+              onClick={()=> dispatch(signUp(username,email,password,confirmPassword))}
               />
              </div>
         </div>

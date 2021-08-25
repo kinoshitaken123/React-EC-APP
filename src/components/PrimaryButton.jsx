@@ -13,13 +13,13 @@ const useStyles = makeStyles({
     }
 })
 
-const PrimaryButton = (props)=> {
+const PrimaryButton = (props) => {
     const classes = useStyles();
 
     return(
-        <button className={classes.button}variant="contained" onClick={()=> props.onClick()}>
+        <Button className={classes.button}variant="contained" onClick={()=> props.onClick()}>
             {props.label}
-        </button>
+        </Button>
     )
 }
 
