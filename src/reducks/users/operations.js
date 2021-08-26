@@ -54,10 +54,11 @@ export const signUp = (username,email,password,confirmPassword) => {
              }
          }
 
-        //  db.collection('users').doc(uid).set(userInitialData)
-        //       .then(() => {
-        //        dispath(push(push ('/')))
-        //    })
+         db.collection('users').doc().set()
+              .then(() => {
+               dispath(push(push ('/')))
+           })
+           
      })
     }
 }
