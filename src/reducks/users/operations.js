@@ -29,22 +29,22 @@ export const signUp = (username,email,password,confirmPassword) => {
     return async (dispath) => {
     // Validation
     if (username === "" || email === "" || password === "" || confirmPassword === "") {
-        alert("必須項目が見入力です")
+        alert("必須項目が未入力です")
         return false
      }
      if (password !== confirmPassword) {
          alert("パスワードが一致しません。もう一度お試しください。")
          return false
      }
+
      return auth.createUserWithEmailAndPassword(email, password)
-     .then(result =>{
-         const user = result.user
-
+     .then(result => {
+         const user = result.user;
          if (user) {
-             const uid = user.uid
-             const timestamp = FirebaseTimestamp.now()
+             const uid = user.uid;
+             const timestamp = FirebaseTimestamp.now();
 
-             const userInitialData ={
+             const userInitialData = {
                  created_at: timestamp,
                  email: email,
                  role: "customer",
@@ -54,10 +54,10 @@ export const signUp = (username,email,password,confirmPassword) => {
              }
          }
 
-         db.collection('user').doc(uid).set(userInitialData)
-           .then(() => {
-               dispath(push(push ('/')))
-           })
+        //  db.collection('users').doc(uid).set(userInitialData)
+        //       .then(() => {
+        //        dispath(push(push ('/')))
+        //    })
      })
     }
 }
