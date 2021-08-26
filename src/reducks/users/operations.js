@@ -40,6 +40,7 @@ export const signUp = (username,email,password,confirmPassword) => {
      return auth.createUserWithEmailAndPassword(email, password)
      .then(result => {
          const user = result.user;
+
          if (user) {
              const uid = user.uid;
              const timestamp = FirebaseTimestamp.now();
@@ -52,13 +53,11 @@ export const signUp = (username,email,password,confirmPassword) => {
                  updated_at: timestamp,
                  username: username
              }
-         }
-
-         db.collection('users').doc().set()
-              .then(() => {
-               dispath(push(push ('/')))
-           })
-           
+             db.collection('users').doc(uid).set(userInitialData)
+             .then(() => {
+              dispath(push(push ('/')))
+          })
+         }      
      })
     }
 }
