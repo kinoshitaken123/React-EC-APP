@@ -16,10 +16,10 @@ export const listenAuthState = () => {
                     isSignedIn: true,
                     role: data.role,
                     uid: uid,
-                    username: username
+                    username: data.username
                 })) 
         
-                dispath(push(push ('/')))
+                dispath(push('/'))
                })
             } else {
                 dispath (push('/signin'))
