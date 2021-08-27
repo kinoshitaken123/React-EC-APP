@@ -1,28 +1,28 @@
-import {signInAction} from "./actions";
+import {signInAction, signOutAction} from "./actions";
 import {push} from 'connected-react-router';
 import {auth, db, FirebaseTimestamp} from '../../firebase/index'
 
 export const listenAuthState = () => {
-    return async (dispath) => {
-        return auth.onAuthStateChanged( user => {
+    return async (dispatch) => {
+        return auth.onAuthStateChanged(user => {
             if (user) {
             const uid = user.uid;
 
             db.collection('users').doc(uid).get()
-            .then( snapshort => {
-                const data = snapshort.data()
+            .then( snapshot => {
+                const data = snapshot.data()
       
-                dispath(signInAction({
+                dispatch(signInAction({
                     isSignedIn: true,
                     role: data.role,
                     uid: uid,
                     username: data.username
                 })) 
         
-                dispath(push('/'))
+                dispatch(push('/'))
                })
             } else {
-                dispath (push('/signin'))
+                dispatch (push('/signin'))
             }
         })
     }
@@ -92,5 +92,15 @@ export const signUp = (username,email,password,confirmPassword) => {
           })
          }      
      })
+    }
+}
+
+export const signOut = () => {
+    return async (dispatch) => {
+        auth.signOut()
+        .then(() => {
+            dispatch(signOutAction());
+            dispatch(push('/signin'))
+        })
     }
 }

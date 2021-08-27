@@ -9,7 +9,8 @@ const Router = () => {
             <Route exact path={"/signup"} component={SignUp} />
             <Route exact path={"/signin"} component={SignIn} />
 
-            <Auth>
+            <Auth> 
+                {/* ログインしたページ */}
                <Route exact path={"(/)?"} component={Home} />     {/* スラッシュがあってもなくてもHOME画面を表示させる */}
             </Auth>
         </Switch>
