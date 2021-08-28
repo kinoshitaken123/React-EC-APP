@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react'
-import {SelectBox,TextInput } from '../components/UIkit'
+import {PrimaryButton, SelectBox,TextInput } from '../components/UIkit'
 
 const ProductEdit = () => {
 
@@ -45,6 +45,13 @@ const categories = [
                     fullWidth={true} label={"商品名"}　multiline={false} required={true}
                     onChange={inputPrice} rows={1} value={price} type={"number"}
                 /> 
+                <div className="module-spacer--medium" />
+                <div className="center">
+                    <PrimaryButton
+                       label={"商品情報を保存"}
+                       onClick={}
+                    />
+                </div>
             </div>
         </section>
     )
