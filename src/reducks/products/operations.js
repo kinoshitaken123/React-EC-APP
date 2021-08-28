@@ -3,13 +3,14 @@ import {push} from 'connected-react-router'
 
 const productsRef = db.collection('products')
 
-export const saveProduct = (name,description,category,price) => {
+export const saveProduct = (name,description,category,price,images) => {
     return async (dispatch) => {
         const timestamp = FirebaseTimestamp.now()
 
         const data ={
             category: category,
             description: description,
+            images: images,
             name: name,
             price: parseInt(price, 10), //メソッド　文字列を数字に変更して10進数で表示
             updated_at: timestamp
