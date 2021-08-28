@@ -5,15 +5,20 @@ import{
 } from "redux";
 
 import {routerMiddleware, connectRouter} from 'connected-react-router';
-import {ProductReducer} from '../products/reducers';
+import {ProductsReducer} from '../products/reducers';
 import {UsersReducer} from '../users/reducers';
 import thunk from 'redux-thunk';
 
 //history 今どのパスいるかを表す
 export default function createStore (history) { 
+    // const logger = createLogger({
+    //     collapsed: true,
+    //     diff: true
+    // });
+
     return reduxCreateStore(
         combineReducers({
-            products: ProductReducer,
+            products: ProductsReducer,
             router: connectRouter(history),
             users: UsersReducer
         }),
