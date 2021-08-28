@@ -3,6 +3,7 @@ import IconButton from "@material-ui/core/IconButton";
 import FolderSharedIcon from '@material-ui/icons/FolderShared';
 import {makeStyles} from '@material-ui/styles';
 import {storage} from "../../firebase/index";
+import ImagePreview from "./ImagePreview";
 
 const useStyles = makeStyles({
     icon: {
@@ -37,6 +38,11 @@ const ImageArea = (props) => {
 
     return (
         <div>
+            <div className="p-grip__list-images">
+                {props.images.length > 0 && (
+                    props.images.map(image => <ImagePreview id={image.id} path={image.path} key={image.id} />)
+                )}
+            </div>
             <div className= "u-text-right">
                 <span>商品画像を登録する</span>
                 <IconButton className={classes.icon}>
