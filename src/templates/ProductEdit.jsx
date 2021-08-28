@@ -3,10 +3,10 @@ import { TextInput } from '../components/UIkit'
 
 const ProductEdit = () => {
 
-    const [name,setName] = useState(""),
-    const [description,setDescription] = useState(""),
-    const [category,setCategory] = useState(""),
-    const [name,setPrice] = useState("");
+    const [name, setName] = useState(""),
+          [description, setDescription] = useState(""),
+          [category, setCategory] = useState(""),
+          [price, setPrice] = useState("");
 
 const inputName = useCallback((event) => {
     setName(event.target.value)
@@ -21,7 +21,7 @@ const inputPrice = useCallback((event) => {
 }, [setPrice]);
     return(
         <section>
-            <h2 className ="u-text_headline u-text-center">商品の登録・編集</h2>
+            <h2 className="u-text__headline u-text-center">商品の登録・編集</h2>
             <div className="c-section-container">
                 <TextInput
                     fullWidth={true} label={"商品名"}　multiline={false} required={true}
