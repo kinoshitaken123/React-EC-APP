@@ -55,7 +55,7 @@ const categories = [
                 <div className="center">
                     <PrimaryButton
                        label={"商品情報を保存"}
-                       onClick={() => dispatch(saveProduct(name, description, category, price))}
+                       onClick={() => dispatch(saveProduct(name, description, category, price, images))}
                     />
                 </div>
             </div>
