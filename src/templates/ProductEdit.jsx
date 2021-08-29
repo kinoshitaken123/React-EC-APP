@@ -17,7 +17,6 @@ if (id !== "" ) {
 
 }
 
-
 const [name, setName] = useState(""),
         [description, setDescription] = useState(""),
         [category, setCategory] = useState(""),
@@ -54,7 +53,7 @@ const categories = [
               setDescription(data.description);
               setCategory(data.category);
               setPrice(data.price);
-
+              setStocks(data.stocks);
           })
     }
  }, [id]);
@@ -85,7 +84,7 @@ const categories = [
                 <div className="center">
                     <PrimaryButton
                        label={"商品情報を保存"}
-                       onClick={() => dispatch(saveProduct(id,name, description, category, price, images))}
+                       onClick={() => dispatch(saveProduct(id,name, description, category, price, images, stocks))}
                     />
                 </div>
             </div>
