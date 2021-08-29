@@ -12,34 +12,89 @@ import IconButton from "@material-ui/core/IconButton";
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import {deleteProduct} from "../../reducks/products/operations";
+// import {deleteProduct} from "../../reducks/products/operations";
 
+// materialuiのthemeを指定することができる
+const useStyles = makeStyles((theme) => ({
+    root: {
+        //sm スマホ
+        [theme.breakpoints.down('sm')]: {
+            margin: 8,
+             //スマホ画面で２画面にしたい
+            width: 'calc(50% - 16px)'
+        },
+        //sm スマホ以上
+        [theme.breakpoints.up('md')]: {
+            margin: 16,
+            width: 'calc(33.3333% - 32px)'
+        }
+    },
+        content: {
+            display: 'flex',
+            padding: '16 8',
+            textAlign: 'left',
+            //sm 擬似要素
+            '&:last-child': {
+                paddingBottom: 16
+            }
+        },
+        icon: {
+            marginRight: 0,
+            marginLeft: 'auto'
+        },
+        media: {
+            height: 0,
+            paddingTop: '100%'
+        },
+        price: {
+            color: theme.palette.secondary.blue,
+            fontSize: 16
+        },
+        productName: {
+            boxOrient: 'vertical',
+            display: '-webkit-box',
+            fontSize: 14,
+            lineHeight: '18px',
+            overflow: 'hidden',
+            [theme.breakpoints.down('sm')]: {
+                height: 36,
+                lineClamp: 2,
+            },
+            [theme.breakpoints.up('md')]: {
+                height: 18,
+                lineClamp: 1,
+            }
+    }    
+}));
 
 const ProductCard = (props) => {
     const classes = useStyles();
     const dispatch = useDispatch()
-    const selector = useSelector(state => state);
-    const userRole = getUserRole(selector)
-    const isAdministrator = (userRole === "administrator");
+    // const selector = useSelector(state => state);
+    // const userRole = getUserRole(selector)
+    // const isAdministrator = (userRole === "administrator");
 
-    const images = (props.images.length > 0) ? props.images : [NoImage]
+    const images = (props.images.length > 0) ? props.images : [{path: NoImage}]
+
+    // 三桁区切りをするメソッド　toLocaleString
     const price = props.price.toLocaleString();
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    // const [anchorEl, setAnchorEl] = React.useState(null);
 
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
+    // const handleClick = (event) => {
+    //     setAnchorEl(event.currentTarget);
+    // };
 
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    // const handleClose = () => {
+    //     setAnchorEl(null);
+    // };
 
     return (
         <Card className={classes.root}>
             <CardMedia
                 className={classes.media}
-                image={images[0].path}
+                image={props.images[0].path}
+                // clickしたら詳細画面に遷移
                 onClick={() => dispatch(push('/product/'+props.id))}
                 title=""
             />
@@ -52,7 +107,7 @@ const ProductCard = (props) => {
                         ¥{price}
                     </Typography>
                 </div>
-                {isAdministrator && (
+                {/* {isAdministrator && (
                     <>
                         <IconButton className={classes.icon} onClick={handleClick}>
                             <MoreVertIcon />
@@ -81,8 +136,8 @@ const ProductCard = (props) => {
                                 削除する
                             </MenuItem>
                         </Menu>
-                    </>
-                )}
+                    </> */}
+                {/* )} */}
             </CardContent>
         </Card>
     );

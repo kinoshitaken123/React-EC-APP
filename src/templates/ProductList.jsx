@@ -9,10 +9,18 @@ const ProductList = () => {
     const selector = useSelector(state => state);
     const products = getProducts(selector);
 
+    // const query = window.location.search
+    // const category = /^\?category=/.test(query) ? query.split('?category=')[1] : ""
+
+    // useEffect(() => {
+    //     dispatch(fetchProducts(category))
+    // },[query])
+
     return (
         <section className="c-section-wrapin">
             <div className="p-grid__row"> 
-                {products.length > 0 && (
+                {/* {}はJSを使う宣言 */}
+                {products.length > 0 && (   
                     products.map(product => (
                         <ProductCard
                             key={product.id} id={product.id} images={product.images}
