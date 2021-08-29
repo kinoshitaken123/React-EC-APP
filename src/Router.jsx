@@ -13,7 +13,8 @@ const Router = () => {
             <Auth> 
                 {/* ログインしたページ */}
                <Route exact path={"(/)?"} component={Home} />  {/* スラッシュがあってもなくてもHOME画面を表示させる */}
-               <Route exact path={"(/product/edit)"} component={ProductEdit} />     
+                {/* 正規表現 */}
+               <Route path="/product/edit(/:id)?" component={ProductEdit} />
             </Auth>
         </Switch>
     )
