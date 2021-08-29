@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {push} from "connected-react-router"
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -12,7 +12,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-// import {deleteProduct} from "../../reducks/products/operations";
+import {deleteProduct} from "../../reducks/products/operations";
 
 // materialuiのthemeを指定することができる
 const useStyles = makeStyles((theme) => ({
@@ -50,44 +50,42 @@ const useStyles = makeStyles((theme) => ({
             color: theme.palette.secondary.blue,
             fontSize: 16
         },
-        productName: {
-            boxOrient: 'vertical',
-            display: '-webkit-box',
-            fontSize: 14,
-            lineHeight: '18px',
-            overflow: 'hidden',
-            [theme.breakpoints.down('sm')]: {
-                height: 36,
-                lineClamp: 2,
-            },
-            [theme.breakpoints.up('md')]: {
-                height: 18,
-                lineClamp: 1,
-            }
-    }    
+    //     productName: {
+    //         boxOrient: 'vertical',
+    //         display: '-webkit-box',
+    //         fontSize: 14,
+    //         lineHeight: '18px',
+    //         overflow: 'hidden',
+    //         [theme.breakpoints.down('sm')]: {
+    //             height: 36,
+    //             lineClamp: 2,
+    //         },
+    //         [theme.breakpoints.up('md')]: {
+    //             height: 18,
+    //             lineClamp: 1,
+    //         }
+    // }    
 }));
 
 const ProductCard = (props) => {
     const classes = useStyles();
     const dispatch = useDispatch()
+    const [anchorEl, setAnchorEl] = useState(null);
     // const selector = useSelector(state => state);
     // const userRole = getUserRole(selector)
     // const isAdministrator = (userRole === "administrator");
 
-    const images = (props.images.length > 0) ? props.images : [{path: NoImage}]
-
+    const images = (props.images.length > 0) ? props.images : [{path: NoImage}];
     // 三桁区切りをするメソッド　toLocaleString
     const price = props.price.toLocaleString();
+    
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
 
-    // const [anchorEl, setAnchorEl] = React.useState(null);
-
-    // const handleClick = (event) => {
-    //     setAnchorEl(event.currentTarget);
-    // };
-
-    // const handleClose = () => {
-    //     setAnchorEl(null);
-    // };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
     return (
         <Card className={classes.root}>
@@ -95,12 +93,12 @@ const ProductCard = (props) => {
                 className={classes.media}
                 image={props.images[0].path}
                 // clickしたら詳細画面に遷移
-                onClick={() => dispatch(push('/product/'+props.id))}
                 title=""
+                onClick={() => dispatch(push('/product/'+ props.id))}
             />
             <CardContent className={classes.content}>
-                <div onClick={() => dispatch(push('/product/'+props.id))}>
-                    <Typography className={classes.productName} color="textSecondary" component="p">
+                <div onClick={() => dispatch(push('/product/'+ props.id))}>
+                    <Typography color="textSecondary" component="p">
                         {props.name}
                     </Typography>
                     <Typography className={classes.price} component="p">
@@ -108,12 +106,12 @@ const ProductCard = (props) => {
                     </Typography>
                 </div>
                 {/* {isAdministrator && (
-                    <>
-                        <IconButton className={classes.icon} onClick={handleClick}>
+                    <> */}
+                        <IconButton onClick={handleClick}>
                             <MoreVertIcon />
                         </IconButton>
                         <Menu
-                            id="menu-appbar"
+                            // id="menu-appbar"
                             anchorEl={anchorEl}
                             keepMounted
                             open={Boolean(anchorEl)}
@@ -136,8 +134,8 @@ const ProductCard = (props) => {
                                 削除する
                             </MenuItem>
                         </Menu>
-                    </> */}
-                {/* )} */}
+                    {/* </>
+                )} */}
             </CardContent>
         </Card>
     );
