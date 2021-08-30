@@ -1,4 +1,4 @@
-import {signInAction, signOutAction} from "./actions";
+import {fetchProductsInCartAction, signInAction, signOutAction} from "./actions";
 import {push} from 'connected-react-router';
 import {auth, db, FirebaseTimestamp} from '../../firebase/index'
 
@@ -10,7 +10,13 @@ export const addProductToCart = (addedProduct) => {
         await cartRef.set(addedProduct);
         dispatch(push('/cart'))
     }
-}
+};
+
+export const fetchProductsInCart = (products) => {
+    return async (dispatch) => {
+        dispatch(fetchProductsInCartAction(products))
+    }
+};
 
 export const listenAuthState = () => {
     return async (dispatch) => {
