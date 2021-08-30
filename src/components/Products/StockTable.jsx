@@ -22,20 +22,21 @@ const StockTable = (props) => {
 
     return (
         <TableContainer>
-            <Table aria-label="simple table">
+            <Table>
                 <TableBody>
                     {props.stocks.length > 0 && (
-                        props.stocks.map((stock, index) => (
+                        props.stocks.map(stock => (
                             <TableRow key={stock.stock}>
-                                <TableCell component="th" scope="row">{stock.stock}</TableCell>
-                                <TableCell>残り{stock.quantity}点</TableCell>
+                                <TableCell component="th" scope="row">
+                                    {stock.stock}
+                                </TableCell>
+                                <TableCell>残り
+                                    {stock.quantity}点
+                                </TableCell>
                                 <TableCell className={classes.iconCell}>
                                     {stock.quantity > 0 ? (
-                                        <IconButton
-                                            className={classes.iconCell}
-                                            onClick={() => props.addProduct(stock.stock)}
-                                        >
-                                            <ShoppingCartIcon />
+                                        <IconButton>
+                                          <ShoppingCartIcon />
                                         </IconButton>
                                     ) : (
                                         <div>売切</div>

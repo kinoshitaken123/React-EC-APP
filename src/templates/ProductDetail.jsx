@@ -6,6 +6,8 @@ import {db, FirebaseTimestamp} from "../firebase";
 import {StockTable} from "../components/Products";
 // import {addProductToCart} from "../reducks/users/operations";
 // import {returnCodeToBr} from "../function/common";
+import HTMLReactParser from 'html-react-parser';
+import {ImageSwiper} from '../components/Products';
 
 const useStyles = makeStyles((theme) => ({
     sliderBox: {
@@ -37,6 +39,14 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 36
     }
 }))
+
+const returnCodeToBr = (text) => {
+    if (text === "" ) {
+        return text
+    } else {
+        return HTMLReactParser(text.replace(/\r?\n/g, '<br/>'))
+    }
+};
 
 const ProductDetail = () => {
     const classes = useStyles()
@@ -74,15 +84,15 @@ const ProductDetail = () => {
             {product && (
                 <div className="p-grid__row">
                     <div className={classes.sliderBox}>
-                        {/* <ImageSwiper images={product.images}/> */}
+                        <ImageSwiper images={product.images}/>
                     </div>
                     <div className={classes.detail}>
                         <h2 className="u-text__headline">{product.name}</h2>
                         <p className={classes.price}>¥{(product.price).toLocaleString()}</p>
                         <div className="module-spacer--small"/>
-                        {/* <StockTable addProduct={addProduct} stocks={product.stocks} /> */}
+                        <StockTable stocks={product.stocks} />
                         <div className="module-spacer--small"/>
-                        {/* <p>{returnCodeToBr(product.description)}</p> */}
+                        <p>{returnCodeToBr(product.description)}</p>
                     </div>
                 </div>
             )}
