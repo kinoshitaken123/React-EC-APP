@@ -5,7 +5,7 @@ import Toolbar                        from '@material-ui/core/Toolbar';
 import {useDispatch, useSelector}     from "react-redux";
 import {getIsSignedIn}                from "../../reducks/users/selectors";
 import logo                           from "/Users/kentarokinoshota/Desktop/React-Redux/ec-app/src/assets/icons/logo.png";
-import {HeaderMenu, ClosableDrawer}   from "./index";
+import {HeaderMenus, ClosableDrawer}   from "./index";
 import {push}                         from "connected-react-router"
 
 const useStyles = makeStyles({
@@ -40,6 +40,11 @@ const Header = () => {
                      src={logo} alt="Mottainai Logo" width="85px" 
                      onClick={() => dispatch(push('/'))}
                    />
+                    {isSignedIn && (
+                     <div className={classes.iconButtons}>
+                       <HeaderMenus/>
+                     </div>
+                    )}    
                </Toolbar>
             </AppBar>
         </div>
