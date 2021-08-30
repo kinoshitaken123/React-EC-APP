@@ -4,7 +4,7 @@ import {makeStyles} from "@material-ui/styles";
 import {useDispatch, useSelector} from "react-redux";
 import {db, FirebaseTimestamp} from "../firebase";
 import {StockTable} from "../components/Products";
-// import {addProductToCart} from "../reducks/users/operations";
+import {addProductToCart} from "../reducks/users/operations";
 // import {returnCodeToBr} from "../function/common";
 import HTMLReactParser from 'html-react-parser';
 import {ImageSwiper} from '../components/Products';
@@ -49,8 +49,8 @@ const returnCodeToBr = (text) => {
 };
 
 const ProductDetail = () => {
-    const classes = useStyles()
-    const dispatch = useDispatch()
+    const classes = useStyles();
+    const dispatch = useDispatch();
     const selector = useSelector(state => state)
     const path = selector.router.location.pathname
     const id = path.split('/product/')[1]
@@ -63,21 +63,21 @@ const ProductDetail = () => {
             setProduct(data)
         })
     },[])
+    
 
-    // const addProduct = useCallback((selectedSize) => {
-    //     const timestamp = FirebaseTimestamp.now()
-    //     dispatch(addProductToCart({
-    //         added_at: timestamp,
-    //         description: product.description,
-    //         gender: product.gender,
-    //         images: product.images,
-    //         name: product.name,
-    //         price: product.price,
-    //         productId: product.id,
-    //         quantity: 1,
-    //         size: selectedSize
-    //     }))
-    // }, [product])
+    const addProduct = useCallback((selectedStock) => {
+        const timestamp = FirebaseTimestamp.now()
+        dispatch(addProductToCart({
+            added_at: timestamp,
+            description: product.description,
+            images: product.images,
+            name: product.name,
+            price: product.price,
+            productId: product.id,
+            quantity: 1,
+            size: selectedStock
+        }))
+    }, [product]);
 
     return (
         <section className="c-section-wrapin">
@@ -90,7 +90,7 @@ const ProductDetail = () => {
                         <h2 className="u-text__headline">{product.name}</h2>
                         <p className={classes.price}>¥{(product.price).toLocaleString()}</p>
                         <div className="module-spacer--small"/>
-                        <StockTable stocks={product.stocks} />
+                        <StockTable addProduct={addProduct} stocks={product.stocks} />
                         <div className="module-spacer--small"/>
                         <p>{returnCodeToBr(product.description)}</p>
                     </div>

@@ -2,6 +2,16 @@ import {signInAction, signOutAction} from "./actions";
 import {push} from 'connected-react-router';
 import {auth, db, FirebaseTimestamp} from '../../firebase/index'
 
+export const addProductToCart = (addedProduct) => {
+    return async (dispatch, getState) => {
+        const uid = getState().users.uid;
+        const cartRef = db.collection('users').doc(uid).collection('cart').doc(uid);
+        addedProduct['cartId'] = cartRef.id;
+        await cartRef.set(addedProduct);
+        dispatch(push('/cart'))
+    }
+}
+
 export const listenAuthState = () => {
     return async (dispatch) => {
         return auth.onAuthStateChanged(user => {
