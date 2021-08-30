@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router'
-import {ProductList, ProductEdit, Reset, SignIn, SignUp} from './templates'
+import {ProductDetail, ProductList, ProductEdit, Reset, SignIn, SignUp} from './templates'
 import Auth from './Auth'
 
 const Router = () => {
@@ -13,8 +13,9 @@ const Router = () => {
             <Auth> 
                 {/* ログインしたページ */}
                <Route exact path={"(/)?"} component={ProductList} />  {/* スラッシュがあってもなくてもHOME画面を表示させる */}
+               <Route exact path={"/product/:id"} component={ProductDetail} /> 
                 {/* 正規表現 */}
-               <Route path="/product/edit(/:id)?" component={ProductEdit} />
+               <Route path={"/product/edit(/:id)?"}component={ProductEdit} />
             </Auth>
         </Switch>
     )

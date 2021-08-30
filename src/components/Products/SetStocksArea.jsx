@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     }
 })
 
-const SetSizesArea = (props) => {
+const SetStocksArea = (props) => {
     const classes = useStyles();
 
     const [index, setIndex] = useState(0),
@@ -127,4 +127,4 @@ const SetSizesArea = (props) => {
     );
 };
 
-export default SetSizesArea;
+export default SetStocksArea;
