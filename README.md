@@ -42,8 +42,11 @@
 | カート機能 | 
 | 注文履歴 | 
 
+## ●今後追加機能
+* お気に入り機能
+* 検索機能
+
 ## ●開発環境
-- OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript
-- JSライブラリ：React,react-swiper
-- Firebase
+- JSライブラリ：React,react-swiper,Material UI
+- Firebase Firebase Authentication, FireStore Database, Firestore
