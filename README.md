@@ -1,71 +1,51 @@
-# Getting Started with Create React App
+## もったいない　(React-Redux版)
+もったいないは、フードロス削減へ賛同メーカーより協賛価格で提供を受けた商品をお客様へ販売するショッピングサイトです。
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[URL](https://ec-app-47b49.web.app/)
 
-## Available Scripts
+アカウント: test@test.ne.jp
+パスワード: 123456
 
-In the project directory, you can run:
+## サイト概要
+食品ロスをテーマとした、小売店や飲食店、生産者の売れ残りや食べ残し食材や農家の余剰品を、消費者に食品を安く提供するプラットフォームとして機能しています。
+結果、食品ロスが減り、廃棄物処理などのエネルギー、コストの節約につながります。
 
-### `npm start`
+消費者は”食材を安い価格で”購入、飲食店/生産者　”廃棄予定の商品を販売”できます。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### ●サイトテーマ
+食品ロスをテーマに「いつでもどこでも購入・販売できる通販サイト」
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### ●テーマを選んだ理由
+前職でSDGsについて展開する機会がありました。17の項目のうちの一つ「作る責任　使う責任」より身近なもの課題でありました。事実として、年間643万トンも食べられるのに廃棄される
+この食品ロス対策として提供できるプラットフォームを立ち上げたいと思いました。食品ロスが減り、廃棄物処理などのエネルギー、コストの節約に貢献できるようなサイトを立ち上げたいと思い作成しました。
+### ●ターゲットユーザ
+* 消費者
+* 小売店、飲食店、生産者
+### ●主な利用シーン
+* 消費者「食材を安い価格で手に入れたい時」
+* 店舗「廃棄予定の商品を販売を行いたい時」
 
-### `npm test`
+## ●顧客側の機能
+| 機能 |
+| :---: | 
+| 会員登録 |
+| ログイン | 
+| ログアウト | 
+| 商品購入 | 
+| カート機能 | 
+| 注文履歴 | 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ●管理者側の機能
+| 機能 |
+| :---: | 
+| 商品管理 | 
+| カート機能 | 
+| 注文履歴 | 
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# React-EC-APP
+## ●開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+- AWS : EC2,RDS
