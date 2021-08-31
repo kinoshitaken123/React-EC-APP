@@ -36,7 +36,7 @@ export const orderProduct = (productsInCart, amount) => {
         const timestamp = FirebaseTimestamp.now();
 
         let 
-            products = {},
+            products = [],
             soldOutProducts = [];
         
         const batch = db.batch();
@@ -59,13 +59,14 @@ export const orderProduct = (productsInCart, amount) => {
                 return stock
               }
           })
-          products[product.productId] = {
+
+            products.push({
             id: product.productId,
             images: product.images,
             name: product.name,
             price: product.price,
             stock: product.stock
-          }
+          });
 
           batch.update(
               productsRef.doc(product.productId), 
@@ -86,7 +87,6 @@ export const orderProduct = (productsInCart, amount) => {
             // 注文履歴データを作成
             const orderRef = userRef.collection('orders').doc();
             const date = timestamp.toDate();
-
             // 配送日を3日後に設定
             const shippingDate = FirebaseTimestamp.fromDate(new Date(date.setDate(date.getDate() + 3)));
 
