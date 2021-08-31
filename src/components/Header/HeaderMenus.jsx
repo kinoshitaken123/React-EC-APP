@@ -39,12 +39,12 @@ const HeaderMenus = (props) => {
                     break;
             }
         });
-
         dispatch(fetchProductsInCart(productsInCart))
     });
 
- return () => unsubscribe()
+  return () => unsubscribe()
 },[]);
+
     return (
         <>
           <IconButton onClick={() => dispatch(push('/cart'))}>

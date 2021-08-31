@@ -4,7 +4,7 @@ import {PrimaryButton, SelectBox,TextInput } from '../components/UIkit'
 import {saveProduct} from "../reducks/products/operations";
 import ImageArea from "../components/Products/ImageArea";
 import {db} from '../firebase';
-import {SetStocksArea} from '../components/Products';
+import {SetStockArea} from '../components/Products';
 
 const ProductEdit = () => {
 const dispatch = useDispatch();
@@ -79,7 +79,7 @@ const categories = [
                     onChange={inputPrice} rows={1} value={price} type={"number"}
                 /> 
                 <div className="module-spacer--small" />
-                {/* <SetStocksArea stocks={stocks} setStocks={setStocks}/> */}
+                <SetStockArea stocks={stocks} setStocks={setStocks}/>
                 <div className="module-spacer--small" />
                 <div className="center">
                     <PrimaryButton
