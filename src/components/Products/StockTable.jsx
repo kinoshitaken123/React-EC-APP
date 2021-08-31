@@ -35,7 +35,7 @@ const StockTable = (props) => {
                                 </TableCell>
                                 <TableCell className={classes.iconCell}>
                                     {stock.quantity > 0 ? (
-                                        <IconButton>
+                                        <IconButton onClick={() => props.addProduct(stock.stock)}>
                                           <ShoppingCartIcon />
                                         </IconButton>
                                     ) : (
