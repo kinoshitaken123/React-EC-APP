@@ -40,7 +40,7 @@ const SetStocksArea = (props) => {
     }, [setQuantity]);
 
     const addStock = (index, stock, quantity) => {
-        if (stock === "" || quantity === 0) {
+        if (stock === "" || quantity === "" ) {
             // Required input is blank
             return false
         } else {
@@ -94,7 +94,7 @@ const SetStocksArea = (props) => {
                                     <TableCell>{item.stock}</TableCell>
                                     <TableCell>{item.quantity}</TableCell>
                                     <TableCell className={classes.iconCell}>
-                                    <IconButton className={classes.iconCell} onClick={() => editSize(index, item.stock, item.quantity)}>
+                                    <IconButton className={classes.iconCell} onClick={() => addStock(index, item.stock, item.quantity)}>
                                             <EditIcon />
                                         </IconButton>
                                     </TableCell>
