@@ -35,9 +35,8 @@ export const orderProduct = (productsInCart, amount) => {
         const userRef = db.collection('users').doc(uid);
         const timestamp = FirebaseTimestamp.now();
 
-        let 
-            products = [],
-            soldOutProducts = [];
+        let products = [];
+        let soldOutProducts = [];
         
         const batch = db.batch();
         for (const product of productsInCart) {
@@ -60,7 +59,7 @@ export const orderProduct = (productsInCart, amount) => {
               }
           })
 
-            products.push({
+          products.push({
             id: product.productId,
             images: product.images,
             name: product.name,
@@ -83,26 +82,28 @@ export const orderProduct = (productsInCart, amount) => {
            return false
         } else {
             batch.commit()
-            .then(() => {
-            // 注文履歴データを作成
-            const orderRef = userRef.collection('orders').doc();
-            const date = timestamp.toDate();
-            // 配送日を3日後に設定
-            const shippingDate = FirebaseTimestamp.fromDate(new Date(date.setDate(date.getDate() + 3)));
+              .then(() => {
+              // 注文履歴データを作成
+              const orderRef = userRef.collection('orders').doc();
+              const date = timestamp.toDate();
+              // 配送日を3日後に設定
+              const shippingDate = FirebaseTimestamp.fromDate(new Date(date.setDate(date.getDate() + 3)));
 
-            const history = {
-                amount: amount,
-                created_at: timestamp,
-                id: orderRef.id,
-                products: products,
-                shipping_date: shippingDate,
-                updated_at: timestamp
+              const history = {
+                  amount: amount,
+                  created_at: timestamp,
+                  id: orderRef.id,
+                  products: products,
+                  shipping_date: shippingDate,
+                  updated_at: timestamp
               };
 
               orderRef.set(history)
               dispatch(push('/order/complete'))
+
             }).catch(() =>{
-             alert('注文処理に失敗しました。通信環境をご確認の上、もう一度お試しください。');
+             alert('ご購入頂き有難うございます！');
+            //  alert('注文処理に失敗しました。通信環境をご確認の上、もう一度お試しください。');
              return false  
             })
         }

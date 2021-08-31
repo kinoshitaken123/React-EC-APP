@@ -40,7 +40,9 @@ const categories = [
     {id: "fishs", name: "海鮮"},
     {id: "meets", name: "お肉"},
     {id: "frurt", name: "果物"},
+    {id: "bred", name: "パン"},
     {id: "cake", name: "ケーキ"},
+    {id: "sweet", name: "お菓子"},
 ];
 
  useEffect(() => {  //components didmount = useEffect
