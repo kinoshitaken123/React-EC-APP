@@ -90,7 +90,7 @@ const SetStocksArea = (props) => {
                     <TableBody>
                         {props.stocks.length > 0 && (
                             props.stocks.map((item, index) => (
-                                <TableRow key={item.size}>  
+                                <TableRow key={item.stock}>  
                                     <TableCell>{item.stock}</TableCell>
                                     <TableCell>{item.quantity}</TableCell>
                                     <TableCell className={classes.iconCell}>
