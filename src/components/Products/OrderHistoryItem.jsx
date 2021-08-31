@@ -3,22 +3,7 @@ import Divider from "@material-ui/core/Divider";
 import {OrderedProducts} from "./index";
 // import {datetimeToString, dateToString} from "../../function/common";
 import {TextDetail} from "../UIkit";
-import List from "@material-ui/core/List";
-import {makeStyles} from "@material-ui/styles";
 
-// const useStyles = makeStyles((theme) => ({
-//     orderList: {
-//         background: theme.palette.grey["100"],
-//         margin: '0 auto',
-//         padding: 32,
-//         [theme.breakpoints.down('md')]: {
-//             width: '100%'
-//         },
-//         [theme.breakpoints.up('md')]: {
-//             width: 768
-//         }    
-//     }
-// }));
 
 const datetimeToString = (date) => {
     return date.getFullYear() + '-'
@@ -49,9 +34,9 @@ const OrderHistoryItem = (props) => {
             <TextDetail label={"注文日時"} value={orderedDatetime} />
             <TextDetail label={"発送予定日"} value={shippingDate} />
             <TextDetail label={"注文金額"} value={Price}/>
-            {/* {Object.keys(products).length > 0 && (
-                <OrderedProducts products={products} />
-            )} */}
+            {order.products.length > 0 && (
+                <OrderedProducts products={order.products} />
+            )}
             <div className="module-spacer--extra-extra-small" />
             <Divider />
         </div>
