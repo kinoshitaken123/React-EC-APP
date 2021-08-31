@@ -49,21 +49,21 @@ const useStyles = makeStyles((theme) => ({
             color: theme.palette.secondary.blue,
             fontSize: 16
         },
-    //     productName: {
-    //         boxOrient: 'vertical',
-    //         display: '-webkit-box',
-    //         fontSize: 14,
-    //         lineHeight: '18px',
-    //         overflow: 'hidden',
-    //         [theme.breakpoints.down('sm')]: {
-    //             height: 36,
-    //             lineClamp: 2,
-    //         },
-    //         [theme.breakpoints.up('md')]: {
-    //             height: 18,
-    //             lineClamp: 1,
-    //         }
-    // }    
+        productName: {
+            boxOrient: 'vertical',
+            display: '-webkit-box',
+            fontSize: 14,
+            lineHeight: '18px',
+            overflow: 'hidden',
+            [theme.breakpoints.down('sm')]: {
+                height: 36,
+                lineClamp: 2,
+            },
+            [theme.breakpoints.up('md')]: {
+                height: 18,
+                lineClamp: 1,
+            }
+    }    
 }));
 
 const ProductCard = (props) => {
