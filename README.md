@@ -1,6 +1,8 @@
 ## もったいない　(React-Redux版)
 もったいないは、フードロス削減へ賛同メーカーより協賛価格で提供を受けた商品をお客様へ販売するショッピングサイトです。
 
+<img width="1440" alt="スクリーンショット 2021-09-01 16 04 14" src="https://user-images.githubusercontent.com/82036851/131627232-b4155fdc-ec06-4786-a93f-a5e1ac8c8536.png">
+
 [URL](https://ec-app-47b49.web.app/)
 
 アカウント: test@test.ne.jp
