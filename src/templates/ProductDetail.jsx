@@ -1,11 +1,9 @@
 import React, {useCallback, useEffect, useState} from 'react';
-// import ImageSwiper from "../components/Products/ImageSwiper";
 import {makeStyles} from "@material-ui/styles";
 import {useDispatch, useSelector} from "react-redux";
 import {db, FirebaseTimestamp} from "../firebase";
 import {StockTable} from "../components/Products";
 import {addProductToCart} from "../reducks/users/operations";
-// import {returnCodeToBr} from "../function/common";
 import HTMLReactParser from 'html-react-parser';
 import {ImageSwiper} from '../components/Products';
 
