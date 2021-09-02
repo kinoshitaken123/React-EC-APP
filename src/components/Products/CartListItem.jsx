@@ -33,7 +33,7 @@ const CartListItem = (props) => {
     const image = props.product.images[0].path;
     const name  = props.product.name;
     const price = props.product.price.toLocaleString(); //三桁区切り
-    const stock  = props.product.stock;
+    // const stock  = props.product.stock;
 
     const removeProductFromCart = (id) => {
         const uid = getUserId(selector);
@@ -51,7 +51,7 @@ const CartListItem = (props) => {
                 <div className={classes.text}>
                     <ListItemText 
                         primary={name} 
-                        secondary={"在庫：" + props.product.stock} 
+                        // secondary={"在庫：" + props.product.stock} 
                     />
                     <ListItemText primary={"¥"+price} />
                 </div>
