@@ -52,6 +52,7 @@ https://youtu.be/7lSpgvzLbY0
 * 検索機能
 
 ## ●開発環境
-- 言語：HTML,CSS,JavaScript
+- 言語：JavaScript、HTML,CSS
 - JSライブラリ：React,react-swiper,Material UI
 - Firebase Firebase Authentication, FireStore Database, Firestore
+- Redux
